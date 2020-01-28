@@ -1,0 +1,33 @@
+.chart-color1 {
+    fill: #dea82c;
+  }
+  
+  /* Fill color for the second group */
+  .chart-color2 {
+    fill: #e9621a;
+  }
+  
+  /* Fill color for the third group */
+  .chart-color3 {
+    fill: #e92213;
+  }
+  
+  /* Fill color for the needle */
+  .needle,
+  .needle-center {
+    fill: #464A4F;
+  }
+
+  .arc.active {
+    fill: #000;
+  }
+  
+  /* When the gauge is at 0%, all the arcs appear blue */ 
+  .min .arc {
+    fill: #00f;
+  }
+  
+  /* When the gauge is at 100%, all the arcs appear red */
+  .max .arc {
+    fill: #f00;
+  }

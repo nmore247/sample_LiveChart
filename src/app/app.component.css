@@ -1,0 +1,68 @@
+button{
+    margin-right: 3rem;
+}
+button{
+    margin-bottom: 3rem;
+}
+button{
+    margin-left: 1rem;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+button{
+    margin-top: 3rem;
+}
+
+span {
+    padding-right: 1rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+span {
+    margin-left: 3rem;
+}
+
+div {
+    text-align: center;
+}
+
+mat-sidenav-container{
+    height: 100%;
+}
+
+mat-sidenav, mat-sidenav-content
+{
+    padding: 16px,
+}
+
+mat-sidenav
+{
+    background-color: lightcyan;
+    width: 200px
+}
+
+mat-grid-tile  {
+    background-color: lightblue;
+}
+
+table {
+    width: 100%;
+  }
+
+  .battery-card {
+    max-width: 400px;
+    margin-top: 3rem;
+    margin-left: 3rem;  
+  }
+
+mat-button {
+    text-align: right;
+}
+
+ 
