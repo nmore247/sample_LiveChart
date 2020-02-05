@@ -10,7 +10,7 @@ import { MarketPrice } from './marketPrice';
 })
 export class LivechartComponent implements OnInit, OnChanges, AfterViewInit {
 
-  @ViewChild('chart', {static: false})
+  @ViewChild('chart', { static: false })
   private chartElement: ElementRef;
   private enableCharting = false;
   private svgElement: HTMLElement;
@@ -43,33 +43,33 @@ export class LivechartComponent implements OnInit, OnChanges, AfterViewInit {
 
   updateChart() {
     let _this = this;
-  this.formatDate();
+    this.formatDate();
 
-  // Scale the range of the data again
-  this.chartProps.x.domain(d3.extent(this.marketStatus, function (d) {
-    if (d.date instanceof Date) {
-      return d.date.getTime();
-    }
-  }));
+    // Scale the range of the data again
+    this.chartProps.x.domain(d3.extent(this.marketStatus, function(d) {
+      if (d.date instanceof Date) {
+        return d.date.getTime();
+      }
+    }));
 
-  this.chartProps.y.domain([0, d3.max(this.marketStatus, function (d) { return Math.max(d.close, d.open); })]);
+    this.chartProps.y.domain([0, d3.max(this.marketStatus, function (d) { return Math.max(d.close, d.open); })]);
 
-  // Select the section we want to apply our changes to
-  this.chartProps.svg.transition();
+    // Select the section we want to apply our changes to
+    this.chartProps.svg.transition();
 
-  // Make the changes to the line chart
-  this.chartProps.svg.select('.line.line1') // update the line
-    .attr('d', this.chartProps.valueline(this.marketStatus));
+    // Make the changes to the line chart
+    this.chartProps.svg.select('.line.line1') // update the line
+      .attr('d', this.chartProps.valueline(this.marketStatus));
 
-  this.chartProps.svg.select('.line.line2') // update the line
-    .attr('d', this.chartProps.valueline2(this.marketStatus));
+    this.chartProps.svg.select('.line.line2') // update the line
+      .attr('d', this.chartProps.valueline2(this.marketStatus));
 
-  this.chartProps.svg.select('.x.axis') // update x axis
-    .call(this.chartProps.xAxis);
+    this.chartProps.svg.select('.x.axis') // update x axis
+      .call(this.chartProps.xAxis);
 
-  this.chartProps.svg.select('.y.axis') // update y axis
-    .call(this.chartProps.yAxis);
-   
+    this.chartProps.svg.select('.y.axis') // update y axis
+      .call(this.chartProps.yAxis);
+
   }
 
   formatDate() {
@@ -87,9 +87,9 @@ export class LivechartComponent implements OnInit, OnChanges, AfterViewInit {
       this.formatDate();
       const _this = this;
 
-  /*showChart() {
-      this.chartProps = {};
-      this.formatDate();*/
+      /*showChart() {
+          this.chartProps = {};
+          this.formatDate();*/
 
       // Set the dimensions of the canvas / graph
       // tslint:disable-next-line: one-variable-per-declaration
@@ -108,24 +108,24 @@ export class LivechartComponent implements OnInit, OnChanges, AfterViewInit {
       // Define the line
       const valueline = d3.line<MarketPrice>()
         // tslint:disable-next-line: only-arrow-functions
-        .x(function(d) {
+        .x(function (d) {
           if (d.date instanceof Date) {
             return _this.chartProps.x(d.date.getTime());
           }
         })
         // tslint:disable-next-line: only-arrow-functions
-        .y(function(d) { console.log('Close market'); return _this.chartProps.y(d.close); });
+        .y(function (d) { console.log('Close market'); return _this.chartProps.y(d.close); });
 
       // Define the line
       const valueline2 = d3.line<MarketPrice>()
         // tslint:disable-next-line: only-arrow-functions
-        .x(function(d) {
+        .x(function (d) {
           if (d.date instanceof Date) {
             return _this.chartProps.x(d.date.getTime());
           }
         })
         // tslint:disable-next-line: only-arrow-functions
-        .y(function(d) { console.log('Open market'); return _this.chartProps.y(d.open); });
+        .y(function (d) { console.log('Open market'); return _this.chartProps.y(d.open); });
 
       const svg = d3.select(_this.chartElement.nativeElement)
         .append('svg')
@@ -137,13 +137,13 @@ export class LivechartComponent implements OnInit, OnChanges, AfterViewInit {
       // Scale the range of the data
       this.chartProps.x.domain(
         // tslint:disable-next-line: only-arrow-functions
-        d3.extent(_this.marketStatus, function(d) {
+        d3.extent(_this.marketStatus, function (d) {
           if (d.date instanceof Date) {
             return (d.date as Date).getTime();
           }
         }));
       // tslint:disable-next-line: only-arrow-functions
-      this.chartProps.y.domain([0, d3.max(this.marketStatus, function(d) {
+      this.chartProps.y.domain([0, d3.max(this.marketStatus, function (d) {
         return Math.max(d.close, d.open);
       })]);
 
@@ -179,7 +179,7 @@ export class LivechartComponent implements OnInit, OnChanges, AfterViewInit {
       this.chartProps.valueline2 = valueline2;
       this.chartProps.xAxis = xAxis;
       this.chartProps.yAxis = yAxis;
-  }
+    }
 
   }
 }

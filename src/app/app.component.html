@@ -1,41 +1,14 @@
 <header>
-<mat-toolbar color="primary" class="navbar">
-<span>Hybrid Monitoring System</span>
+   <mat-toolbar color="primary" class="navbar">
+      <span>Hybrid Monitoring System</span>
 
- <div>
-    <button mat-button>Home</button>
-    <button mat-button [routerLink] = "'/about'">About</button>
- </div>
-  
- <div>
-    <mat-menu #appMenu1="matMenu" xPosition="after" yPosition="below">
-      <button mat-menu-item>Admin</button>
-      <button mat-menu-item>User</button>
-    </mat-menu>
-    <button mat-flat-button [matMenuTriggerFor]="appMenu1">Login</button>
- </div>
-</mat-toolbar> 
+      <h2>{{title}}</h2>
+
+   </mat-toolbar>
 </header>
+<app-chart></app-chart>
 
-<h2>{{title}}</h2>
+<app-livechart [marketStatus]="toPlot"></app-livechart>
 
-
- <app-chart></app-chart>
-
- <app-livechart [marketStatus]="toPlot"></app-livechart>
- 
- <router-outlet></router-outlet>
-
- <app-signals></app-signals>
-
- <app-gauge></app-gauge>
-
-
-
-
-
-
-
-
-
+<router-outlet></router-outlet>
 
